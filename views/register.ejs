@@ -1,0 +1,27 @@
+<!-- register.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register New Account</title>
+</head>
+<body>
+  <h1>Register New Account</h1>
+
+  <form method="POST" action="/register">
+    <div>
+      <label for="name">Account Name:</label>
+      <input type="text" name="name" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+      </div>
+    <div>
+      <label for="balance">Initial Balance:</label>
+      <input type="number" name="balance" min="0" step="0.01" required>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>

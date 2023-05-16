@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Accounts</title>
+</head>
+<body>
+  <h1>Bank Accounts</h1>
+
+  {% if accounts.length === 0 %}
+    <p>No accounts found.</p>
+  {% else %}
+    <ul>
+      {% for (let i = 0; i < accounts.length; i++) { %}
+        <li>
+          {{ accounts[i].name }} - {{ accounts[i].balance.toFixed(2) }}
+          <form method="POST" action="/accounts/{{ accounts[i]._id }}/transaction">
+            <input type="number" name="amount" step="100" min="0" required>
+            <button type="submit" name="action" value="deposit">Deposit</button>
+            <button type="submit" name="action" value="withdraw">Withdraw</button>
+          </form>
+          <form method="POST" action="/accounts/{{ accounts[i]._id }}">
+            <button type="submit">Delete Account</button>
+          </form>
+        </li>
+      {% } %}
+    </ul>
+  {% endif %}
+
+  <a href="/register">Register New Account</a>
+</body>
+</html>
